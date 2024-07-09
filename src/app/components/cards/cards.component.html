@@ -1,3 +1,15 @@
 
-<p>Loading Cards: {{ store.state() }}</p>
-<p>Cards:</p><pre>{{ store.cards() | json }}</pre>
+<ul>
+    <li (click)="store.loadPage(1)">First page</li>
+    ...
+    <li (click)="store.filter.page() !== 1 && store.loadPage(store.filter.page() - 1)">Previous page</li>
+    ...
+    <li (click)="store.filter.page() !== store.totalPages() && store.loadPage(store.filter.page() + 1)">Next page </li>
+    ...
+   <li (click)="store.loadPage(store.totalPages())">Last page</li>
+</ul>
+
+@if(store.filter.page()){
+    <p>Loading Cards: {{ store.state() }}</p>
+    <p>Cards page {{store.filter.page()}}:</p><pre>{{ store.cards() | json }}</pre>
+}

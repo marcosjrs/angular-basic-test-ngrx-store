@@ -20,6 +20,6 @@ export class CardsComponent {
       const state = getState(this.store);
       console.log('cards state changed', state);
     });
-    this.store.loadAll();
+    this.store.loadPage(1);
   }
 }

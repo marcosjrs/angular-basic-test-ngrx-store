@@ -9,11 +9,13 @@ export const CardsStore = signalStore(
   withState(initialState),
   withMethods((store, cardsSvc = inject(CardsService)) => ({
     // 👇 Defining a method to load all cards.
-    async loadAll(): Promise<void> {
+    async loadPage(page:number): Promise<void> {
       patchState(store, { state: 'Loading' });
-      cardsSvc.loadCards()
+      cardsSvc.loadCards(page)
                 .subscribe({
-                    next: (resp) => patchState(store, { state: 'Loaded', cards: resp.data}),
+                    next: (resp) => patchState(store, 
+                        { state: 'Loaded', cards: resp.data, filter: { page, query:`?num=5&offset=${page}`}, totalPages: resp.meta.total_pages 
+                    }),
                     error: (err) => patchState(store, { state: 'Error', cards: []})
                 });      
     },

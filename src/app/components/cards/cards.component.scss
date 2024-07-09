@@ -1,0 +1,14 @@
+:host{
+    ul{
+        display: flex;
+        gap: 15px;
+        padding: 0;
+        li {
+            box-shadow: 3px 3px 4px;
+            cursor: pointer;
+            list-style-type: none;
+            outline: 1px solid #ccc;
+            padding: 2px 10px;
+        }
+    }
+}

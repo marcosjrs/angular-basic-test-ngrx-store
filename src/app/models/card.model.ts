@@ -66,9 +66,13 @@ export interface Meta {
 export const initialState: CardsState = {
   cards: [],
   state: 'Loading',
+  filter: { query: '', page: 0 },
+  totalPages: 0,
 };
 
 type CardsState = {
   cards: Card[];
   state: 'Loading' | 'Loaded' | 'Error';
+  filter: { query: string; page: number };
+  totalPages: number;
 };
