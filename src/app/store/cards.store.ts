@@ -9,7 +9,7 @@ export const CardsStore = signalStore(
   withState(initialState),
   withMethods((store, cardsSvc = inject(CardsService)) => ({
     // 👇 Defining a method to load all cards.
-    async loadPage(page:number): Promise<void> {
+    loadPage(page:number): void {
       patchState(store, { state: 'Loading' });
       cardsSvc.loadCards(page)
                 .subscribe({
