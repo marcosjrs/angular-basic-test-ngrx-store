@@ -10,6 +10,6 @@ export class CardsService {
   http = inject(HttpClient);
 
   loadCards(page = 0): Observable<ResponseCards> {
-    return this.http.get<ResponseCards>(`${URL_BASE}?num=5&offset=${page}`);
+    return this.http.get<ResponseCards>(`${URL_BASE}?num=5&offset=${page * 5}`);
   }
 }

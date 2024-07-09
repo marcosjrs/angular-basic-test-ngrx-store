@@ -11,5 +11,11 @@
 
 @if(store.filter.page()){
     <p>Loading Cards: {{ store.state() }}</p>
-    <p>Cards page {{store.filter.page()}}:</p><pre>{{ store.cards() | json }}</pre>
+    <p>Cards page {{store.filter.page()}}:</p>
+    @for (card of  store.cards(); track card.id) {
+        <div class="card">
+            <div class="title">{{ card.name }}</div>
+            <div class="description">{{ card.desc }}</div>
+        </div>
+    }
 }
