@@ -12,10 +12,18 @@
 @if(store.filter.page()){
     <p>Status of page: {{ store.state() }}</p>
     <p>Cards page {{store.filter.page()}}:</p>
+    <!-- 
     @for (card of  store.cards(); track card.id) {
         <div class="card">
             <div class="title">{{ card.name }}</div>
             <div class="description">{{ card.desc }}</div>
         </div>
     }
+    -->
+    <div *cards="store.cards(); let card = $card">
+        <div class="card">
+            <div class="title">{{ card.name }}</div>
+            <div class="description">{{ card.desc }}</div>
+        </div>
+    </div>
 }
