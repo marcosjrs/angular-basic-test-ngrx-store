@@ -20,10 +20,9 @@
         </div>
     }
     -->
-    <div *cards="store.cards(); let card = $card">
-        <div class="card">
-            <div class="title">{{ card.name }}</div>
-            <div class="description">{{ card.desc }}</div>
-        </div>
+    <div class="cards">
+        <ng-container *cards="store.cards(); let card = $card">
+            <app-card [card]="card" />
+        </ng-container>
     </div>
 }
