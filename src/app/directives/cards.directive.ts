@@ -24,7 +24,6 @@ export class CardsDirective {
       for (let i = 0; i < this.cards().length; i++) {
         const context = { $card: this.cards()[i] };
         this.container.createEmbeddedView(this.templateRef, context);
-        console.log(this.templateRef.elementRef.nativeElement)
       }
     });
   }
